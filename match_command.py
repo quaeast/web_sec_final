@@ -9,6 +9,7 @@ def load_csdn():
                            sep=' # ',
                            names=['username', 'passwd', 'email'])
     print(data_set.head(3))
+    print('data loaded...')
     return data_set
 
 
