@@ -9,8 +9,19 @@ def load_csdn():
                            sep=' # ',
                            names=['username', 'passwd', 'email'])
     print(data_set.head(3))
-    print('data loaded...')
+    print('csdn data loaded...')
     return data_set
+
+
+def load_yahoo():
+    file_path = 'plaintxt_yahoo.txt'
+    data_set = pd.read_csv(file_path,
+                           sep=':',
+                           names=['user_id', 'username', 'passwd'])
+    # print(data_set.isnull().any())
+    print(data_set.head(3))
+    print('yahoo data loaded...')
+    return data_set.dropna()
 
 
 def generate_is_command_func_list():
@@ -27,7 +38,8 @@ def generate_is_command_func_list():
 
 
 if __name__ == '__main__':
-    ds = load_csdn()
+    # ds = load_csdn()
+    ds = load_yahoo()
     func_list = generate_is_command_func_list()
     result_list = []
     for command_tuple in zip(command_list, func_list):
