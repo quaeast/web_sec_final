@@ -18,7 +18,7 @@ def dict(data_frame):
 
 
 if __name__ == '__main__':
-    sd = load_csdn()
-    res = sd.loc[dict]
+    df = load_csdn()
+    res = df.loc[dict]
     print(res.shape)
-
+    print('success rate: {:.2%}'.format(res.shape[0]/df.shape[0]))
