@@ -1,0 +1,6 @@
+*.7z
+*.sql
+test.py
+command.txt
+.DS_Store
+.idea
