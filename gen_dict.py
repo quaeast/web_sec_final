@@ -74,10 +74,10 @@ def gen_yahoo_dict():
 if __name__ == '__main__':
     pwd_dict = gen_csdn_dict()
     # pwd_dict = gen_yahoo_dict()
-    pwd_dict_len = get_len_h(get_len_byte(csdn_pwd_dict))
+    pwd_dict_len = get_len_h(get_len_byte(pwd_dict))
     print(pwd_dict_len)
     # 保存字典
     save_to_file(pwd_dict, 'csdn_dict.txt')
-    save_to_file(pwd_dict, 'yahoo_dict.txt')
+    # save_to_file(pwd_dict, 'yahoo_dict.txt')
 
 
