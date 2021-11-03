@@ -45,25 +45,35 @@ def get_len_h(num):
     return num
 
 
-def gen_csdn_dict():
+def gen_basic_dict():
     res = []
-    # 匹配频繁出现的单词、键盘组合
-    # res += multiply_str(static_elements.csdn_hot_words, power_str(static_elements.printable_ascii_list, 3))
     # 六位数字
-    # res += power_str(static_elements.nums_list, 6)
+    res += power_str(static_elements.nums_list, 6)
     # 八位日期
-    '''
-    res += multiply_str(['19', '20'], static_elements.nums_list, static_elements.nums_list, static_elements.month_digital,
+    res += multiply_str(['19', '20'], static_elements.nums_list, static_elements.nums_list,
+                        static_elements.month_digital,
                         static_elements.date_digital)
-                        '''
     # 6位字母和数字
-    res += power_str(static_elements.nums_list+static_elements.alphabet, 6)
+    res += power_str(static_elements.nums_list + static_elements.alphabet, 6)
     return res
+
+def gen_csdn_dict():
+    res = gen_basic_dict()
+    # 匹配频繁出现的单词、键盘组合
+    res += multiply_str(static_elements.csdn_hot_words, power_str(static_elements.printable_ascii_list, 3))
+    return res
+
+
+def gen_yahoo_dict():
+    res = gen_basic_dict()
+    res += multiply_str(static_elements.yahoo_hot_words, power_str(static_elements.printable_ascii_list, 3))
+    return res
+
 
 
 if __name__ == '__main__':
     # res_l = gen_csdn_dict()
     # le = get_len_h(get_len_byte(res_l))
     # print(le)
-    a = get_len_h(34**6)
+    a = get_len_h(34 ** 6)
     print(a)
