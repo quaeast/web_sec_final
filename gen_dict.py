@@ -79,5 +79,3 @@ if __name__ == '__main__':
     # 保存字典
     save_to_file(pwd_dict, 'csdn_dict.txt')
     # save_to_file(pwd_dict, 'yahoo_dict.txt')
-
-
