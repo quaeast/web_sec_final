@@ -1,9 +1,9 @@
 import static_elements
 
 
-def append_save_to_dict(dict_list, filename='dict.txt'):
+def save_to_file(dict_list, filename='dict.txt', mode='w'):
     dict_list = map(lambda s: str(s) + '\n', dict_list)
-    with open(filename, 'a') as f:
+    with open(filename, mode) as f:
         f.writelines(dict_list)
 
 
@@ -54,8 +54,9 @@ def gen_basic_dict():
                         static_elements.month_digital,
                         static_elements.date_digital)
     # 6位字母和数字
-    res += power_str(static_elements.nums_list + static_elements.alphabet, 6)
+    # res += power_str(static_elements.nums_list + static_elements.alphabet, 6)
     return res
+
 
 def gen_csdn_dict():
     res = gen_basic_dict()
@@ -70,10 +71,13 @@ def gen_yahoo_dict():
     return res
 
 
-
 if __name__ == '__main__':
-    # res_l = gen_csdn_dict()
-    # le = get_len_h(get_len_byte(res_l))
-    # print(le)
-    a = get_len_h(34 ** 6)
-    print(a)
+    pwd_dict = gen_csdn_dict()
+    # pwd_dict = gen_yahoo_dict()
+    pwd_dict_len = get_len_h(get_len_byte(csdn_pwd_dict))
+    print(pwd_dict_len)
+    # 保存字典
+    save_to_file(pwd_dict, 'csdn_dict.txt')
+    save_to_file(pwd_dict, 'yahoo_dict.txt')
+
+
