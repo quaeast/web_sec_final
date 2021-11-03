@@ -38,8 +38,8 @@ def generate_is_command_func_list():
 
 
 if __name__ == '__main__':
-    # ds = load_csdn()
-    ds = load_yahoo()
+    ds = load_csdn()
+    # ds = load_yahoo()
     func_list = generate_is_command_func_list()
     result_list = []
     for command_tuple in zip(command_list, func_list):

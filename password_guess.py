@@ -13,8 +13,10 @@ def dict(data_frame):
     command_is_passwd = False
     for i in is_command_func_list:
         command_is_passwd |= i(data_frame)
+    # yyyy-mm-dd
+    is_date_yyyymmdd = data_frame['passwd'].str.match(r'^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$')
     # 还可以增加其他条件...
-    return username_is_passwd | email_is_passwd | command_is_passwd
+    return username_is_passwd | email_is_passwd | command_is_passwd | is_date_yyyymmdd
 
 
 if __name__ == '__main__':
